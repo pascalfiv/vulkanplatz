@@ -1,6 +1,6 @@
 
 .gallery {
-  --s: 150px; /* control the size */
+  --s: 25vh; /* control the size */
   display: grid;
   grid: auto-flow var(--s) / repeat(2,var(--s));
   gap: 10px;
@@ -19,8 +19,10 @@
   transition: .2s linear;
 }
 .gallery > img:hover {
+  z-index: 1;
   filter: grayscale(0);
   --_t: 1.15;
+
 }
 
 body {
@@ -29,4 +31,10 @@ body {
   display: grid;
   place-content: center;
   background: #aabbfb;
+  transition: background-color 0.5s ease;
+}
+
+body:has(.gallery > img:hover) {
+    background: #504f4e;
+    transition: background-color 0.5s ease;
 }
